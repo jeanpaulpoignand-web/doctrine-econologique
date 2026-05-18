@@ -8,11 +8,12 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: Georgia, serif; line-height: 1.6; color: #1f2937; background: #fff; }
         header { background: linear-gradient(135deg, #1e293b, #0f172a); color: white; padding: 1.2rem 2rem; position: sticky; top: 0; z-index: 100; }
-        header nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.3rem; font-weight: bold; }
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
+        header nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.8rem; }
+        .logo { font-size: 1.3rem; font-weight: bold; color: white; text-decoration: none; }
+        .nav-links { display: flex; gap: 1rem; list-style: none; align-items: center; flex-wrap: wrap; }
         .nav-links a { color: white; text-decoration: none; font-size: 0.95rem; }
-        .cta-btn { background: white; color: #1e293b; padding: 0.5rem 1.2rem; border-radius: 0.4rem; font-weight: 500; }
+        .cta-btn { background: #3b82f6; color: white !important; padding: 0.5rem 1.2rem; border-radius: 0.4rem; font-weight: bold; border: 2px solid #60a5fa; white-space: nowrap; }
+        .cta-btn:hover { background: #2563eb; }
         main { max-width: 1200px; margin: 0 auto; padding: 2rem; }
         .hero { background: linear-gradient(135deg, #1e293b, #334155); color: white; padding: 2rem 2.5rem; border-radius: 1rem; margin-bottom: 2rem; }
         .hero h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 0.5rem; }
@@ -31,8 +32,8 @@
         .pillar-card h3 { font-size: 1.1rem; font-weight: bold; }
         .pillar-card p { font-size: 0.9rem; opacity: 0.95; }
         .pillar-card small { opacity: 0.8; font-style: italic; font-size: 0.82rem; }
-        .pillar-link { display: inline-block; margin-top: 0.8rem; background: rgba(255,255,255,0.2); color: white; padding: 0.4rem 1rem; border-radius: 0.4rem; text-decoration: none; font-size: 0.85rem; }
-        .pillar-link:hover { background: rgba(255,255,255,0.35); }
+        .pillar-link { display: inline-block; margin-top: 0.8rem; background: rgba(255,255,255,0.25); color: white; padding: 0.4rem 1rem; border-radius: 0.4rem; text-decoration: none; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.4); }
+        .pillar-link:hover { background: rgba(255,255,255,0.4); }
         .energy { background: linear-gradient(135deg, #2563eb, #1e40af); }
         .durability { background: linear-gradient(135deg, #16a34a, #15803d); }
         .robotics { background: linear-gradient(135deg, #d97706, #b45309); }
@@ -41,12 +42,18 @@
         .drive-section h2 { font-size: 1.6rem; margin-bottom: 0.8rem; color: #1e293b; }
         .drive-section p { max-width: 600px; margin: 0 auto 1.2rem; color: #475569; }
         .drive-btn { display: inline-block; background: #1e293b; color: white; padding: 0.9rem 2rem; border-radius: 0.5rem; text-decoration: none; font-weight: 500; }
+        .drive-btn:hover { background: #0f172a; }
         footer { background: #1e293b; color: white; padding: 2rem; }
         .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 1.5rem; }
         .footer-section h4 { margin-bottom: 0.8rem; }
         .footer-section p, .footer-section a { font-size: 0.9rem; opacity: 0.8; display: block; margin-bottom: 0.4rem; color: white; text-decoration: none; }
         .footer-bottom { border-top: 1px solid rgba(255,255,255,0.2); padding-top: 1.2rem; text-align: center; opacity: 0.6; font-size: 0.85rem; max-width: 1200px; margin: 0 auto; }
-        @media (max-width: 768px) { .problem-solution, .pillars-top, .footer-content { grid-template-columns: 1fr; } .pillars-bottom .pillar-card { width: 100%; } .hero h1 { font-size: 1.8rem; } }
+        @media (max-width: 768px) {
+            .problem-solution, .pillars-top, .footer-content { grid-template-columns: 1fr; }
+            .pillars-bottom .pillar-card { width: 100%; }
+            .hero h1 { font-size: 1.8rem; }
+            header nav { justify-content: flex-start; }
+        }
     </style>
 </head>
 <body>
@@ -56,7 +63,7 @@
             <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#piliers">Les Piliers</a></li>
-                <li><a href="https://drive.google.com/drive/folders/1QN-Evu8Bo1g1A5DcjGR7NaL8bLfm6Bbx" target="_blank" class="cta-btn">Ressources Drive</a></li>
+                <li><a href="https://drive.google.com/drive/folders/1QN-Evu8Bo1g1A5DcjGR7NaL8bLfm6Bbx" target="_blank" class="cta-btn">📂 Ressources Drive</a></li>
             </ul>
         </nav>
     </header>
