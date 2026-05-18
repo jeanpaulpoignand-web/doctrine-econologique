@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctrine Éconologique — Souveraineté Française</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', 'Crimson Text', serif;
+            line-height: 1.6;
+            color: #1f2937;
+            background-color: #ffffff;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        header nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.7;
+        }
+        
+        .cta-btn {
+            background: white;
+            color: #1e293b;
+            padding: 0.7rem 1.5rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn:hover {
+            background: #f1f5f9;
+            transform: translateY(-2px);
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #1e293b via #334155 to #0f172a);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 1rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+            max-width: 600px;
+        }
+        
+        .hero-description {
+            opacity: 0.85;
+            line-height: 1.8;
+            max-width: 800px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            margin: 3rem 0 2rem 0;
+            color: #1e293b;
+            border-bottom: 3px solid #1e293b;
+            padding-bottom: 0.5rem;
+        }
+        
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            transition: all 0.3s;
+        }
+        
+        .card:hover {
+            border-color: #94a3b8;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .pillar-card {
+            border-radius: 0.75rem;
+            padding: 2rem;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .pillar-card:hover::before {
+            right: -30px;
+            top: -30px;
+        }
+        
+        .pillar-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+        
+        .pillar-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pillar-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .pillar-card p {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-bottom: 1rem;
+        }
+        
+        .pillar-card small {
+            opacity: 0.8;
+            font-style: italic;
+        }
+        
+        .energy { background: linear-gradient(135deg, #2563eb, #1e40af); }
+        .durability { background: linear-gradient(135deg, #16a34a, #15803d); }
+        .robotics { background: linear-gradient(135deg, #d97706, #b45309); }
+        .human-capital { background: linear-gradient(135deg, #475569, #1e293b); }
+        
+        .drive-section {
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+            padding: 3rem 2rem;
+            border-radius: 1rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        
+        .drive-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .drive-section p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+        
+        .drive-btn {
+            display: inline-block;
+            background: #1e293b;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .drive-btn:hover {
+            background: #0f172a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        footer {
+            background: #1e293b;
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            font-size: 0.95rem;
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
+            text-decoration: none;
+            color: white;
+            transition: opacity 0.3s;
+        }
+        
+        .footer-section a:hover {
+            opacity: 1;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.2);
+            padding-top: 2rem;
+            text-align: center;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+            
+            .pillars-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span>📚</span>
+                <div>
+                    <strong>Doctrine</strong><br><small style="opacity: 0.7;">Éconologique</small>
+                </div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#piliers">Les Piliers</a></li>
+                <li><a href="#drive" class="cta-btn">Ressources Drive</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero" id="accueil">
+            <div class="hero-content">
+                <h1>Doctrine<br>Éconologique</h1>
+                <p><em>Souveraineté française, production locale, reprise de contrôle économique.</em></p>
+                <div class="hero-description">
+                    <p>Un cadre institutionnel complet construit autour de quatre piliers : <strong>énergie souveraine</strong>, <strong>durabilité obligatoire</strong>, <strong>robotique gériatrique</strong>, <strong>capital humain reclassé</strong>. Qualifié <strong>[FAIT]/[HYPOTHÈSE]/[ANALYSE]</strong>. Prêt à la diffusion législative.</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="problem-solution">
+            <div class="card">
+                <h3>🔴 Problème</h3>
+                <p>Économie française : dépendance énergétique croissante, désindustrialisation, obsolescence programmée, perte de compétences, vieillissement sans anticipation robotique. Chaque pilier adresse une couche structurelle.</p>
+            </div>
+            <div class="card">
+                <h3>✅ Solution</h3>
+                <p><strong>Doctrine Éconologique</strong> : quatre piliers interdépendants. Énergie stable → industrie souveraine. Durabilité → emplois locaux. Robotique gériatrique → anticipation démo. Capital humain → transition sans abandon.</p>
+            </div>
+        </div>
+        
+        <h2 class="section-title" id="piliers">Les 4 Piliers Flagship</h2>
+        
+        <div class="pillars-grid">
+            <div class="pillar-card energy">
+                <div class="pillar-content">
+                    <div class="pillar-icon">⚡</div>
+                    <h3>Énergie</h3>
+                    <p><strong>Atout souverain français : nucléaire + hydro</strong></p>
+                    <p>70% nucléaire + 25% hydro ancien = 95% bas-carbone et stable. Fondation de l'indépendance technologique.</p>
+                    <small>Fondation de l'indépendance technologique</small>
+                </div>
+            </div>
+            
+            <div class="pillar-card durability">
+                <div class="pillar-content">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3>Garantie Décennale</h3>
+                    <p><strong>10 ans obligatoires sur tous les biens</strong></p>
+                    <p>Fin de l'obsolescence programmée. +5–7M emplois. +1,000 Md€/an pouvoir d'achat. 300–400 Mt CO₂ évité.</p>
+                    <small>Reprise du contrôle consommateurs + création d'emplois</small>
+                </div>
+            </div>
+            
+            <div class="pillar-card robotics">
+                <div class="pillar-content">
+                    <div class="pillar-icon">🤖</div>
+                    <h3>Vieillissement & Robotique</h3>
+                    <p><strong>Souveraineté technologique gériatrique</strong></p>
+                    <p>2,8M seniors en perte d'autonomie 2050. Robotisation souveraine. 156–202K FTEs. Europe doit construire son champion.</p>
+                    <small>Démographie 2050 + robotisation souveraine</small>
+                </div>
+            </div>
+            
+            <div class="pillar-card human-capital">
+                <div class="pillar-content">
+                    <div class="pillar-icon">👥</div>
+                    <h3>Capital Humain</h3>
+                    <p><strong>Reclassement + formation + emploi local</strong></p>
+                    <p>Formation continue. Reclassement staff administratif. Densité compétences locales. Transition sans abandon.</p>
+                    <small>Colonne vertébrale sociale de la transition</small>
+                </div>
+            </div>
+        </div>
+        
+        <section class="drive-section" id="drive">
+            <h2>Accéder à la documentation complète</h2>
+            <p>Chaque pilier dispose d'une documentation exhaustive, modèles législatifs, chiffres d'impact, et analyses multi-IA sur Google Drive.</p>
+            <a href="https://drive.google.com/drive/folders/1QN-Evu8Bo1g1A5DcjGR7NaL8bLfm6Bbx" target="_blank" class="drive-btn">📂 Accéder au Drive Principal</a>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Doctrine Éconologique</h4>
+                <p>Cadre institutionnel français pour souveraineté énergétique, production locale, reprise de contrôle économique. Construite sur quatre piliers : énergie, durabilité, robotique gériatrique, capital humain.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Les Piliers</h4>
+                <a href="#piliers">⚡ Énergie</a>
+                <a href="#piliers">🛡️ Garantie Décennale</a>
+                <a href="#piliers">🤖 Vieillissement & Robotique</a>
+                <a href="#piliers">👥 Capital Humain</a>
+            </div>
+            <div class="footer-section">
+                <h4>Ressources</h4>
+                <a href="https://drive.google.com/drive/folders/1QN-Evu8Bo1g1A5DcjGR7NaL8bLfm6Bbx" target="_blank">📂 Google Drive Principal</a>
+                <p style="margin-top: 1rem;">Jean Paul Poignand<br>Côte d'Azur & Besançon, France</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Doctrine Éconologique. Tous les énoncés qualifiés [FAIT]/[HYPOTHÈSE]/[ANALYSE]. Sources : officielles françaises & UE, médias indépendants, triangulation multi-IA.</p>
+        </div>
+    </footer>
+</body>
+</html>
